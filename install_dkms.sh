@@ -7,6 +7,12 @@ DKMS_DIR="/usr/src/${DRIVER_NAME}-${DRIVER_VERSION}"
 
 echo "Installing ${DRIVER_NAME} DKMS module..."
 
+# Check if kernel headers are installed
+if [ ! -d "/lib/modules/$(uname -r)/build" ]; then
+    echo "Kernel headers not found. Installing..."
+    sudo apt-get install -y linux-headers-$(uname -r)
+fi
+
 # Check if DKMS is installed
 if ! command -v dkms &> /dev/null; then
     echo "DKMS is not installed. Installing..."
