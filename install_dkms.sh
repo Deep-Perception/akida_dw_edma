@@ -67,7 +67,7 @@ sudo sed -i '/^pedd_bc$/d' /etc/modules
 
 # Load the module
 echo "Loading module..."
-sudo modprobe akida-pcie || echo "Module load failed, will load on next boot"
+sudo modprobe akida_pcie || echo "Module load failed, will load on next boot"
 
 echo ""
 echo "DKMS installation complete!"
